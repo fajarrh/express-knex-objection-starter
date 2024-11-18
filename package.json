@@ -1,0 +1,63 @@
+{
+  "name": "express-knex",
+  "version": "0.0.1",
+  "description": "api for admin hajatan",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && tsc-alias",
+    "start": "node dist/server.js",
+    "dev": "NODE_ENV=development nodemon -r tsconfig-paths/register --files src/server.ts",
+    "dev:host": "NODE_ENV=development nodemon -r tsconfig-paths/register --files src/server.ts --host 0.0.0.0",
+    "prod": "node server.js",
+    "start:dev": "NODE_ENV=development node server.js",
+    "migrate:dev": "NODE_ENV=development knex migrate:latest",
+    "copyfiles": "copyfiles -u 1 \"src/app/resources/**\" dist && copyfiles -u 1 \"src/storage/**\" dist"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "fajar rizky hidayat",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.12",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "frexp": "^0.1.4",
+    "handlebars": "^4.7.8",
+    "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.15",
+    "objection": "^3.1.4",
+    "pg": "^8.12.0",
+    "puppeteer": "^23.3.0",
+    "puppeteer-core": "^23.3.0",
+    "uuid": "^11.0.2",
+    "yup": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/method-override": "^0.0.35",
+    "@types/morgan": "^1.9.9",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.12.13",
+    "@types/nodemailer": "^6.4.16",
+    "concurrently": "^8.2.2",
+    "copyfiles": "^2.4.1",
+    "nodemon": "^3.1.2",
+    "rimraf": "^5.0.7",
+    "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.5"
+  }
+}
