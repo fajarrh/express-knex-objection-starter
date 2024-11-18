@@ -1,5 +1,6 @@
-import knex, { Knex } from "knex";
+import knex from "knex";
 import dotenv from "dotenv";
+import { paginate, when } from "frexp/lib/KnexHelper";
 
 dotenv.config({ path: [`.env.${process.env.NODE_ENV}`, ".env"] });
 
@@ -39,19 +40,7 @@ const config: knex.Knex.Config = {
   compileSqlOnError: false,
 };
 
-knex.QueryBuilder.extend("paginate", function (page, perPage): any {
-  const offset = (page - 1) * perPage;
-  return Promise.all([
-    this.clone().clearSelect().clearOrder().count(),
-    this.offset(offset).limit(perPage),
-  ]);
-});
-
-knex.QueryBuilder.extend("when", function (value, query, next) {
-  if (!value && !next) return this;
-  if (!value && next) return next(this);
-  query(this, value);
-  return this;
-});
+knex.QueryBuilder.extend("paginate", paginate);
+knex.QueryBuilder.extend("when", when);
 
 export default knex(config);

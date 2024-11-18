@@ -49,9 +49,4 @@ export default class Utils {
       return (letter || "").toUpperCase();
     });
   };
-
-  static toPaginate = ({ total, results }) => {
-    const count = total ?? 0;
-    return [[{ count }], results ?? []];
-  };
 }
