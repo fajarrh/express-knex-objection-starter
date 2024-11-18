@@ -1,0 +1,49 @@
+# dependencies
+**/node_modules
+
+# testing
+**/coverage
+
+# production
+# **/dist
+
+# log directories
+**/logs
+
+# misc
+**/.DS_Store
+
+# env
+**/.env
+
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+# editor files
+*workspace*
+
+# for vagrant
+.vagrant
+
+########### Terraform
+
+# Local .terraform directories
+**/.terraform/*
+
+# terraform variables file
+**/local.tfvars
+**/development.tfvars
+**/production.tfvars
+
+# Crash log files
+crash.log
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+client/.env.development
