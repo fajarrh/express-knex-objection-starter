@@ -27,7 +27,6 @@ AuthController.post("/login", async (req, res, next) => {
     const secret = process.env.JWT_SECRET as string;
     const jwtPayload = {
       id: (user as any).id,
-      oid: user.ownerUuid,
       username: user.name
     };
 
