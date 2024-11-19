@@ -2,7 +2,6 @@ import User from "@model/User";
 import LoginResource from "@resource/LoginResource";
 import express from "express";
 import jwt from "jsonwebtoken";
-import { v4 } from "uuid";
 
 const AuthController = express.Router();
 
@@ -22,7 +21,6 @@ AuthController.post("/login", async (req, res, next) => {
         email: req.body.email,
         googleId: req.body.googleId,
         tokenNotification: req.body.tokenNotification,
-        ownerUuid: v4(),
       });
     }
 
