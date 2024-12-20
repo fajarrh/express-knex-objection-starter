@@ -99,24 +99,6 @@ CORS_ALLOW_HEADERS="Origin,Authorization,Content-Type,Accept"
 - **`CORS_ALLOW_METHODS`**: HTTP methods allowed for CORS requests.
 - **`CORS_ALLOW_HEADERS`**: HTTP headers allowed for CORS requests.
 
-### Example Usage
-
-1. Ensure the `.env.development` file is placed in the root directory of the project.
-2. Install dependencies for environment variable management, if not already installed:
-   ```bash
-   npm install dotenv
-   ```
-3. Import and configure the environment variables in your application entry point:
-   ```javascript
-   require('dotenv').config({ path: '.env.development' });
-
-   console.log(`Server running at ${process.env.ADDR}`);
-   ```
-4. Run your application:
-   ```bash
-   npm start
-   ```
-
 ### Notes
 
 - Ensure the `.env.development` file is included in `.gitignore` to prevent exposing sensitive information in version control.
