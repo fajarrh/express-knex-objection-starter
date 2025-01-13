@@ -154,12 +154,11 @@ NODE_ENV=development npx frgen make:crud
 - shema --schema=schemaName
 ```bash
 NODE_ENV=development npx frgen make:crud --schema=chat
-
-
 ```
 
----
-**Create a Controller**:
+
+
+- **Create a Controller**:
 
     Use the `@Controller` decorator to define the base path for your controller. Methods inside the controller can then be decorated with HTTP method decorators like `@Get`, `@Post`, etc.
 
@@ -189,8 +188,8 @@ NODE_ENV=development npx frgen make:crud --schema=chat
             }
         }
     }
-    ```
- **Middleware**:
+
+- **Middleware**:
 
     You can apply middleware at both the controller and method levels. This is useful for tasks like authentication or logging.
 
@@ -219,7 +218,7 @@ NODE_ENV=development npx frgen make:crud --schema=chat
     }
     ```
 
-3. **Register Routes Dynamically**:
+- **Register Routes Dynamically**:
 
     You can automatically register routes by reading controller files in a directory.
 
@@ -246,7 +245,6 @@ NODE_ENV=development npx frgen make:crud --schema=chat
 
     app.listen(3000, () => console.log("Server running on http://localhost:3000"));
     ```
----
 
 ## Decorators
 
