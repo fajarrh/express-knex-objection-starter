@@ -1,7 +1,6 @@
 import { Controller, Post } from "@lib/Decorators";
 import { NextFunction, Request, Response } from "express";
 import User from "@model/User";
-import LoginResource from "@resource/LoginResource";
 import jwt from "jsonwebtoken";
 
 @Controller("/auth") // Prefix path for this controller
@@ -26,7 +25,7 @@ export class AuthController {
       };
 
       const token = jwt.sign(jwtPayload, secret);
-      res.json(new LoginResource({ token, user }));
+      res.json({ token: user });
     } catch (error) {
       next(error);
     }

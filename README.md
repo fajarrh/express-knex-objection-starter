@@ -163,7 +163,7 @@ NODE_ENV=development npx frgen make:crud --schema=chat
     Use the `@Controller` decorator to define the base path for your controller. Methods inside the controller can then be decorated with HTTP method decorators like `@Get`, `@Post`, etc.
 
     ```typescript
-    import { Controller, Get } from "./decorators"; // Adjust based on your file structure
+    import { Controller, Get } from "@lib/Decorators"; // Adjust based on your file structure
     import { Request, Response, NextFunction } from "express";
 
     @Controller("/users") // Define controller's base path
@@ -194,7 +194,7 @@ NODE_ENV=development npx frgen make:crud --schema=chat
     You can apply middleware at both the controller and method levels. This is useful for tasks like authentication or logging.
 
     ```typescript
-    import { Middleware, Controller, Get } from "./decorators";
+    import { Middleware, Controller, Get } from "@lib/Decorators";
     import { Request, Response, NextFunction } from "express";
 
     function loggerMiddleware(req: Request, res: Response, next: NextFunction) {
@@ -226,7 +226,7 @@ NODE_ENV=development npx frgen make:crud --schema=chat
     import fs from "fs";
     import path from "path";
     import express from "express";
-    import { createRouter } from "./decorators";  // Your decorators' file
+    import { createRouter } from "@lib/Decorators";  // Your decorators' file
     
     const app = express();
     const controllersDir = path.resolve(__dirname, "controllers");
@@ -325,7 +325,7 @@ Apply middleware at the controller or method level.
 ### Controller Example
 
 ```typescript
-import { Controller, Get, Post } from "./decorators"; // Adjust based on your file structure
+import { Controller, Get, Post } from "@lib/Decorators"; // Adjust based on your file structure
 import { Request, Response, NextFunction } from "express";
 
 @Controller("/products")
@@ -354,7 +354,7 @@ export class ProductController {
 ### Middleware Example
 
 ```typescript
-import { Middleware } from "./decorators";
+import { Middleware } from "@lib/Decorators";
 import { Request, Response, NextFunction } from "express";
 
 function authMiddleware(req: Request, res: Response, next: NextFunction) {
