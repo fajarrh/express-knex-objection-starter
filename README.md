@@ -155,7 +155,11 @@ NODE_ENV=development npx frgen make:crud
 ```bash
 NODE_ENV=development npx frgen make:crud --schema=chat
 
-1. **Create a Controller**:
+
+```
+
+---
+**Create a Controller**:
 
     Use the `@Controller` decorator to define the base path for your controller. Methods inside the controller can then be decorated with HTTP method decorators like `@Get`, `@Post`, etc.
 
@@ -186,8 +190,7 @@ NODE_ENV=development npx frgen make:crud --schema=chat
         }
     }
     ```
-
-2. **Middleware**:
+ **Middleware**:
 
     You can apply middleware at both the controller and method levels. This is useful for tasks like authentication or logging.
 
