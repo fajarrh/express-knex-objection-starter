@@ -1,16 +1,18 @@
 import Model from "@lib/Model";
 import { snakeCaseMappers } from "objection";
 
-class User extends Model {
+export default class User extends Model {
   public id: number;
-  public email: string;
   public name: string;
+  public gender: string;
   public phoneNumber: string;
-  public googleId: string;
+  public email: string;
+  public activeAt: Date;
   public photo: string;
+  public googleId: string;
   public tokenNotification: string;
-  public platform: string;
-  public ownerUuid: string;
+  public createdAt: Date;
+  public updatedAt: Date;
 
   static get tableName() {
     return "users";
@@ -23,6 +25,8 @@ class User extends Model {
   static get columnNameMappers() {
     return snakeCaseMappers();
   }
-}
 
-export default User;
+  static get relationMappings() {
+    return {};
+  }
+}

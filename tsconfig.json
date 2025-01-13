@@ -3,10 +3,10 @@
     // these options are overrides used only by ts-node
     // same as the --compilerOptions flag and the TS_NODE_COMPILER_OPTIONS environment variable
     "compilerOptions": {
-      "module": "CommonJS",
-      "moduleResolution": "node"
-    },
-    "include": ["src/**/*", "typings/**/*"]
+      "baseUrl": ".",
+      "target": "ESNext",
+      "module": "CommonJS"
+    }
   },
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
@@ -27,8 +27,8 @@
       "ESNext"
     ] /* Specify a set of bundled library declaration files that describe the target runtime environment. */,
     // "jsx": "preserve",                                /* Specify what JSX code is generated. */
-    // "experimentalDecorators": true,                   /* Enable experimental support for legacy experimental decorators. */
-    // "emitDecoratorMetadata": true,                    /* Emit design-type metadata for decorated declarations in source files. */
+    "experimentalDecorators": true /* Enable experimental support for legacy experimental decorators. */,
+    "emitDecoratorMetadata": true /* Emit design-type metadata for decorated declarations in source files. */,
     // "jsxFactory": "",                                 /* Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'. */
     // "jsxFragmentFactory": "",                         /* Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'. */
     // "jsxImportSource": "",                            /* Specify module specifier used to import the JSX factory functions when using 'jsx: react-jsx*'. */
@@ -53,7 +53,7 @@
       "@socket/*": ["src/socket/*"]
     } /* Specify a set of entries that re-map imports to additional lookup locations. */,
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
-    // "typeRoots": [],                                  /* Specify multiple folders that act like './node_modules/@types'. */
+    //"typeRoots": [] /* Specify multiple folders that act like './node_modules/@types'. */,
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
     // "moduleSuffixes": [],                             /* List of file name suffixes to search when resolving a module. */
@@ -61,7 +61,7 @@
     // "resolvePackageJsonExports": true,                /* Use the package.json 'exports' field when resolving package imports. */
     // "resolvePackageJsonImports": true,                /* Use the package.json 'imports' field when resolving imports. */
     // "customConditions": [],                           /* Conditions to set in addition to the resolver-specific defaults when resolving imports. */
-    // "resolveJsonModule": true,                        /* Enable importing .json files. */
+     "resolveJsonModule": true,                        /* Enable importing .json files. */
     // "allowArbitraryExtensions": true,                 /* Enable importing files with any extension, provided a declaration file is present. */
     // "noResolve": true,                                /* Disallow 'import's, 'require's or '<reference>'s from expanding the number of files TypeScript should add to a project. */
 
@@ -98,7 +98,7 @@
     /* Interop Constraints */
     // "isolatedModules": true,                          /* Ensure that each file can be safely transpiled without relying on other imports. */
     // "verbatimModuleSyntax": true,                     /* Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting. */
-    // "allowSyntheticDefaultImports": true,             /* Allow 'import x from y' when a module doesn't have a default export. */
+    "allowSyntheticDefaultImports": true /* Allow 'import x from y' when a module doesn't have a default export. */,
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
     // "preserveSymlinks": true,                         /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
@@ -128,6 +128,11 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
-
-  "include": ["src/**/*", "typings/**/*", "src/**/*.ts", "typings/**/*.d.ts"]
+  "include": [
+    "src/**/*",
+    "src/types/**/*",
+    "src/**/*.ts",
+    "src/types/**/*.d.ts"
+  ],
+  "exclude": ["node_modules"]
 }
