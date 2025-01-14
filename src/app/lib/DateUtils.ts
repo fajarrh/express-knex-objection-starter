@@ -1,4 +1,4 @@
-export default class UTCDate {
+export default class DateUtils {
   public current = new Date();
   public h: number;
   public i: number;

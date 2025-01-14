@@ -6,13 +6,6 @@ export default class Utils {
     return Date.now() + "" + Math.round(Math.random() * 1e9) + "" + value;
   }
 
-  static rupiah(value) {
-    return new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-    }).format(value);
-  }
-
   static logError(err, location) {
     fs.createWriteStream(
       path.join(process.cwd(), "/src/storage/logs/error.log"),
@@ -37,16 +30,4 @@ export default class Utils {
     }
     return `${process.env.ADDR}`;
   }
-
-  static snackCaseToWord = (text: string) => {
-    return (text || "")
-      .replace(/^[-_]*(.)/, (_, c) => c.toUpperCase()) // Initial char (after -/_)
-      .replace(/[-_]+(.)/g, (_, c) => " " + c.toUpperCase()); // First char after each -/_
-  };
-
-  static ucwords = (text: string) => {
-    return (text || "").toLowerCase().replace(/\b[a-z]/g, function (letter) {
-      return (letter || "").toUpperCase();
-    });
-  };
 }

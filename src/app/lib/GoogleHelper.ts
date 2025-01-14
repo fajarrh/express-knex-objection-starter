@@ -3,7 +3,7 @@ import config from "@config/google";
 // import { google } from "googleapis";
 // import { Message } from "firebase-admin/lib/messaging/messaging-api";
 
-export default class Google {
+export default class GoogleHelper {
   // static accessToken() {
   //   const oauth2Client = new google.auth.OAuth2(
   //     config.web.oauth.clientId,
