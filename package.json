@@ -7,7 +7,7 @@
     "build": "tsc && tsc-alias",
     "copyfiles": "copyfiles -u 1 \"src/app/resources/**\" dist && copyfiles -u 1 \"src/storage/**\" dist",
     "dev": "concurrently -n \"make:controller,server\" -p \"[{name}]\" -c \"blue,white\" \"npm run generate:controllers\" \"npm run watch:dev\"",
-    "generate:controllers": "nodemon --watch src/app/http/controller --exec 'ts-node -r tsconfig-paths/register src/app/lib/GenerateControllers.ts'",
+    "generate:controllers": "nodemon --watch src/app/http/controller --exec 'ts-node -r tsconfig-paths/register src/app/lib/GControllers.ts'",
     "migrate:dev": "NODE_ENV=development knex migrate:latest",
     "prod": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
