@@ -9,7 +9,7 @@
     "dev": "concurrently -n \"make:controller,server\" -p \"[{name}]\" -c \"blue,white\" \"npm run generate:controllers\" \"npm run watch:dev\"",
     "generate:controllers": "nodemon --watch src/app/http/controller --exec 'ts-node -r tsconfig-paths/register src/app/lib/GenerateControllers.ts'",
     "migrate:dev": "NODE_ENV=development knex migrate:latest",
-    "prod": "node dist/server.js",
+    "prod": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:dev": "NODE_ENV=development nodemon -r tsconfig-paths/register --files src/server.ts"
   },
