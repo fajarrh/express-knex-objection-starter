@@ -1,4 +1,4 @@
-import { Controller, Post } from "@lib/Decorators";
+import { Controller, Post } from "frexp/lib/Decorator";
 import { NextFunction, Request, Response } from "express";
 import User from "@model/User";
 import jwt from "jsonwebtoken";
