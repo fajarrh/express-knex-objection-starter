@@ -5,7 +5,7 @@ import { ForeignKeyViolationError } from "objection";
 import AuthorizationException from "@exception/AuthorizationException";
 import UnprocessableException from "@exception/UnprocessableException";
 import NotFoundException from "@exception/NotFoundException";
-import Utils from "@lib/Utils";
+import StringUtils from "@lib/StringUtils";
 
 const ErrorMiddleware: ErrorRequestHandler = (err, req, res, next) => {
   if (res.headersSent) {
@@ -26,7 +26,7 @@ const ErrorMiddleware: ErrorRequestHandler = (err, req, res, next) => {
 
   if (err instanceof ForeignKeyViolationError) {
     return res.status(409).json({
-      error: Utils.snackCaseToWord(err.constraint),
+      error: StringUtils.snackCaseToWord(err.constraint),
     });
   }
 

@@ -1,4 +1,4 @@
-export default class Utils {
+export default class StringUtils {
   static snackCaseToWord = (text: string) => {
     return (text || "")
       .replace(/^[-_]*(.)/, (_, c) => c.toUpperCase()) // Initial char (after -/_)
