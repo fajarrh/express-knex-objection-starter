@@ -7,7 +7,7 @@ import UnprocessableException from "@exception/UnprocessableException";
 import NotFoundException from "@exception/NotFoundException";
 import StringUtils from "@lib/StringUtils";
 
-const ErrorMiddleware: ErrorRequestHandler = (err, req, res, next) => {
+const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   if (res.headersSent) {
     return next(err);
   }
@@ -49,4 +49,4 @@ const ErrorMiddleware: ErrorRequestHandler = (err, req, res, next) => {
   });
 };
 
-export default ErrorMiddleware;
+export default errorHandler;

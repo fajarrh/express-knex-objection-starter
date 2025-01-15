@@ -4,10 +4,11 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import methodOverride from "method-override";
-import ErrorMiddleware from "@middleware/ErrorMiddleware";
+import errorHandler from "@middleware/errorHandler";
 import corsOptions from "@config/cors";
 import logs from "@config/log";
 import { registerRoutes } from "frexp/lib/Decorator";
+import RequestMiddleware from "@middleware/RequestMiddleware";
 
 const app = express();
 app.use(logs);
@@ -16,8 +17,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.use("/public", express.static(__dirname + "/storage"));
-registerRoutes(app, import("./router"));
-app.use(ErrorMiddleware);
+app.use(RequestMiddleware);
+registerRoutes(app, import("./router"), errorHandler);
 
 //disable when create migrate
 // migrate();

@@ -13,8 +13,6 @@ export class AuthController {
         user = await User.query().insertGraphAndFetch({
           name: req.body.name,
           email: req.body.email,
-          googleId: req.body.googleId,
-          tokenNotification: req.body.tokenNotification,
         });
       }
 
