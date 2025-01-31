@@ -112,48 +112,48 @@ For further assistance, consult the project documentation or reach out to the de
 - make:model "className" "tableName"
 
 ```bash
-NODE_ENV=development npx frgen make:model User users
+npx frgen make:model User users
 ```
 - shema --schema=schemaName
 ```bash
-NODE_ENV=development npx frgen make:model User users --schema=chat
+npx frgen make:model User users --schema=chat
 ```
 
 #### Resource
 - make:resource "className" "tableName"
 
 ```bash
-NODE_ENV=development npx frgen make:resource UserResource users
+npx frgen make:resource UserResource users
 ```
 - shema --schema=schemaName
 ```bash
-NODE_ENV=development npx frgen make:resource UserResource users --schema=chat
+npx frgen make:resource UserResource users --schema=chat
 ```
 
 #### Controller
 - make:controller "className" "tableName"
 
 ```bash
-NODE_ENV=development npx frgen make:controller UserController users
+npx frgen make:controller UserController users
 ```
 - shema --schema=schemaName
 ```bash
-NODE_ENV=development npx frgen make:controller UserController users --schema=chat
+npx frgen make:controller UserController users --schema=chat
 ```
 - path --path=/directory/.../target
 ```bash
-NODE_ENV=development npx frgen make:controller UserController users --path=/directory/.../target
+npx frgen make:controller UserController users --path=/directory/.../target
 ```
 
 #### ALL
 - make:crud "className" "tableName"
 
 ```bash
-NODE_ENV=development npx frgen make:crud
+npx frgen make:crud
 ```
 - shema --schema=schemaName
 ```bash
-NODE_ENV=development npx frgen make:crud --schema=chat
+npx frgen make:crud --schema=chat
 ```
 
 

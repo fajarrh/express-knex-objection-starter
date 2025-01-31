@@ -1,7 +1,7 @@
 declare namespace Express {
   interface Request {
     user?: {
-      id?: number;
+      id: number;
       oid?: string;
       username?: string;
     };

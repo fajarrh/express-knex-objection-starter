@@ -1,8 +1,9 @@
+import bcrypt from "bcryptjs";
 export default class StringUtils {
   static snackCaseToWord = (text: string) => {
     return (text || "")
-      .replace(/^[-_]*(.)/, (_, c) => c.toUpperCase()) // Initial char (after -/_)
-      .replace(/[-_]+(.)/g, (_, c) => " " + c.toUpperCase()); // First char after each -/_
+      .replace(/^[-_]*(.)/, (_, c) => c.toUpperCase())
+      .replace(/[-_]+(.)/g, (_, c) => " " + c.toUpperCase());
   };
 
   static ucwords = (text: string) => {
@@ -10,4 +11,15 @@ export default class StringUtils {
       return (letter || "").toUpperCase();
     });
   };
+
+  static async hashPassword(password?: any) {
+    if (!password) return "";
+    const salt = await bcrypt.genSalt(10);
+    return await bcrypt.hash(password, salt);
+  }
+
+  static async verifyPassword(password: any, hashed: any) {
+    if (!password || !hashed) return false;
+    return await bcrypt.compare(password, hashed);
+  }
 }
