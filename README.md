@@ -156,8 +156,6 @@ npx frgen make:crud
 npx frgen make:crud --schema=chat
 ```
 
-
-
 - **Create a Controller**:
 
     Use the `@Controller` decorator to define the base path for your controller. Methods inside the controller can then be decorated with HTTP method decorators like `@Get`, `@Post`, etc.
