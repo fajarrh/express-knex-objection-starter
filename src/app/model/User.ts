@@ -4,15 +4,11 @@ import { snakeCaseMappers } from "objection";
 export default class User extends Model {
   public id: number;
   public name: string;
-  public gender: string;
-  public phoneNumber: string;
   public email: string;
-  public activeAt: Date;
-  public photo: string;
-  public googleId: string;
-  public tokenNotification: string;
-  public createdAt: Date;
-  public updatedAt: Date;
+  public phoneNumber: string;
+  public password: string;
+  public createdAt: any;
+  public updatedAt: any;
 
   static get tableName() {
     return "users";
@@ -24,9 +20,5 @@ export default class User extends Model {
 
   static get columnNameMappers() {
     return snakeCaseMappers();
-  }
-
-  static get relationMappings() {
-    return {};
   }
 }

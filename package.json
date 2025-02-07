@@ -6,12 +6,14 @@
   "scripts": {
     "build": "tsc && tsc-alias",
     "copyfiles": "copyfiles -u 1 \"src/app/resources/**\" dist && copyfiles -u 1 \"src/storage/**\" dist",
-    "dev": "concurrently -n \"make:controller,server\" -p \"[{name}]\" -c \"blue,white\" \"npm run generate:controllers\" \"npm run watch:dev\"",
-    "generate:controllers": "nodemon --watch src/app/http/controller --exec 'ts-node -r tsconfig-paths/register src/app/lib/GControllers.ts'",
-    "migrate:dev": "NODE_ENV=development knex migrate:latest",
+    "dev": "concurrently -n \"server,make:controller\" -p \"[{name}]\" -c \"white,blue\" \"npm run watch:dev\" \"npm run generate:controllers\"",
+    "generate:controllers": "nodemon --delay 2 --watch src/app/http/controller --ext ts --exec 'ts-node -r tsconfig-paths/register src/app/lib/GControllers.ts'",
+    "migrate:dev": "knex migrate:latest",
     "prod": "node server.js",
+    "prisma:pull": "dotenv -e .env.development -- npx prisma db pull",
+    "prisma:dev": "dotenv -e .env.development -- npx prisma migrate dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:dev": "NODE_ENV=development nodemon -r tsconfig-paths/register --files src/server.ts"
+    "watch:dev": "nodemon -r tsconfig-paths/register --files src/server.ts"
   },
   "keywords": [
     "api"
@@ -27,6 +29,7 @@
     "express": "^4.19.2",
     "frexp": "^0.1.7",
     "handlebars": "^4.7.8",
+    "ioredis": "^5.5.0",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
     "method-override": "^3.0.0",
@@ -53,7 +56,7 @@
     "@types/nodemailer": "^6.4.16",
     "concurrently": "^8.2.2",
     "copyfiles": "^2.4.1",
-    "frgen": "^0.2.1",
+    "frgen": "^0.2.8",
     "nodemon": "^3.1.2",
     "rimraf": "^5.0.7",
     "ts-node": "^10.9.2",

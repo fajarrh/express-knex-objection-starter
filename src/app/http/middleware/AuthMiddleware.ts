@@ -1,7 +1,8 @@
+import RedisUtils from "@lib/RedisUtils";
 import { RequestHandler } from "express";
 import jwt from "jsonwebtoken";
 
-const AuthMiddleware: RequestHandler = (req, res, next) => {
+const AuthMiddleware: RequestHandler = async (req, res, next) => {
   let authorization = req.header("authorization");
   let code = 401;
 
@@ -11,14 +12,23 @@ const AuthMiddleware: RequestHandler = (req, res, next) => {
     }
 
     const [_, token] = authorization?.split(" ");
-    jwt.verify(token, process.env.JWT_SECRET as string, (err, decode) => {
-      if (!err) {
-        code = 200;
-        Object.assign(req, {
-          user: decode,
-        });
-      }
-    });
+    await Promise.resolve(
+      jwt.verify(
+        token,
+        process.env.JWT_SECRET as string,
+        async (err, decode: any) => {
+          if (!err && decode) {
+            const value = await RedisUtils.getSession(0, decode.id);
+            if (value) {
+              if (value.uuid === decode.uuid) {
+                code = 200;
+                req.user = value;
+              }
+            }
+          }
+        }
+      )
+    );
   }
 
   if (code < 400) {
